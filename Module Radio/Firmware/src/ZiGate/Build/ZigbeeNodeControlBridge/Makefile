@@ -173,8 +173,11 @@ endif
 # Path definitions
 
 # Use if application directory contains multiple targets
-SDK_BASE_DIR           = $(abspath ../../../../sdk/$(JENNIC_SDK))
-APP_BASE               = $(abspath ../..)
+empty:=
+space:= $(empty) $(empty)
+path_escape = "$(subst $(space),\\ $(space),$(1))"
+SDK_BASE_DIR           = $(call path_escape,$(realpath ../../../../sdk/$(JENNIC_SDK)))
+APP_BASE               = $(call path_escape,$(realpath ../..))
 APP_BLD_DIR            = $(APP_BASE)/Build/ZigbeeNodeControlBridge
 APP_SRC_DIR            = $(APP_BASE)/Source/ZigbeeNodeControlBridge
 ZBC_SRC_DIR            = $(COMPONENTS_BASE_DIR)/ZigbeeCommon/Source
@@ -295,10 +298,10 @@ OPTIONAL_STACK_FEATURES = $(shell $(ZPSCONFIG) -n $(TARGET) -f $(APP_SRC_DIR)/$(
 ###############################################################################
 # Configure for the selected chip or chip family
 
-include $(SDK_BASE_DIR)/Chip/Common/Build/config.mk
-include $(SDK_BASE_DIR)/Platform/Common/Build/config.mk
-include $(SDK_BASE_DIR)/Stack/Common/Build/config.mk
-include $(SDK_BASE_DIR)/Components/BDB/Build/config.mk
+include $(wildcard $(SDK_BASE_DIR)/Chip/Common/Build/config.mk)
+include $(wildcard $(SDK_BASE_DIR)/Platform/Common/Build/config.mk)
+include $(wildcard $(SDK_BASE_DIR)/Stack/Common/Build/config.mk)
+include $(wildcard $(SDK_BASE_DIR)/Components/BDB/Build/config.mk)
 
 ###############################################################################
 
@@ -339,7 +342,7 @@ $(APP_SRC_DIR)/pdum_gen.c $(APP_SRC_DIR)/pdum_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG
 
 $(APP_SRC_DIR)/zps_gen.c $(APP_SRC_DIR)/zps_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG) $(ZPSCONFIG)
 	$(info Configuring the Zigbee Protocol Stack ...)
-	$(ZPSCONFIG) -n $(TARGET) -e LITTLE_ENDIAN_PROCESSOR -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -a $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR)
+	$(ZPSCONFIG) -n $(TARGET) -e LITTLE_ENDIAN_PROCESSOR -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -l $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR)
 
 
 pdum_gen.o zps_gen.o: CFLAGS += -fno-lto
@@ -352,7 +355,7 @@ $(APP_SRC_DIR)/pdum_gen.c $(APP_SRC_DIR)/pdum_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG
 
 $(APP_SRC_DIR)/zps_gen.c $(APP_SRC_DIR)/zps_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG) $(ZPSCONFIG)
 	$(info Configuring the Zigbee Protocol Stack ...)
-	$(ZPSCONFIG) -n $(TARGET)  -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -a $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR)
+	$(ZPSCONFIG) -n $(TARGET)  -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -l $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR)
 
 endif 
 

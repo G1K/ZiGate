@@ -99,7 +99,7 @@ endif
 # but allow it to be disabled by setting DISABLE_LTO=1
 ifneq ($(DISABLE_LTO), 1)
 CFLAGS += -flto 
-LDFLAGS += -flto 
+#LDFLAGS += -flto 
 endif
 
 ###############################################################################

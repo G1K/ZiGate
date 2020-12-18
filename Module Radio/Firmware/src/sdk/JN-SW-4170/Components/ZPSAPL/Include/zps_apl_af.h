@@ -961,7 +961,7 @@ ZPS_APL_INLINE ZPS_teStatus ZPS_eAplAfInterPanDataReq(PDUM_thAPduInstance hAPduI
 ZPS_APL_INLINE void ZPS_vAfInterPanInit(void) ZPS_APL_ALWAYS_INLINE;
 ZPS_APL_INLINE void ZPS_vAfInterPanInit(void)
 {
-    zps_vAfInterPanInit(ZPS_pvAplZdoGetAplHandle());
+//    zps_vAfInterPanInit(ZPS_pvAplZdoGetAplHandle());
 }
 
 
@@ -1228,11 +1228,6 @@ ZPS_APL_INLINE ZPS_teStatus ZPS_eAplAfBoundAckDataReq(void *pvApl, PDUM_thAPduIn
 ZPS_APL_INLINE ZPS_teStatus ZPS_eAplAfBoundAckDataReq(void *pvApl, PDUM_thAPduInstance hAPduInst, uint16 u16ClusterId, uint8 u8SrcEndpoint, ZPS_teAplAfSecurityMode eSecurityMode, uint8 u8Radius, uint8* pu8SeqNum)
 {
     return zps_eAplAfBoundAckDataReq(pvApl, hAPduInst, (u16ClusterId << 16) | u8SrcEndpoint, (eSecurityMode << 8) | u8Radius, pu8SeqNum);
-}
-ZPS_APL_INLINE void ZPS_vAfInterPanInit(void *pvApl) ZPS_APL_ALWAYS_INLINE;
-ZPS_APL_INLINE void ZPS_vAfInterPanInit(void *pvApl)
-{
-    zps_vAfInterPanInit(pvApl);
 }
 
 ZPS_APL_INLINE ZPS_teStatus ZPS_eAplAfBoundDataReqNonBlocking (void *pvApl, PDUM_thAPduInstance hAPduInst, uint16 u16ClusterId, uint8 u8SrcEndpoint, ZPS_teAplAfSecurityMode eSecurityMode, uint8 u8Radius, bool bAck ) ZPS_APL_ALWAYS_INLINE;
