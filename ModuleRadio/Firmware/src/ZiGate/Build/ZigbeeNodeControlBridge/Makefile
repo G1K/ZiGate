@@ -352,9 +352,7 @@ $(APP_SRC_DIR)/pdum_gen.c $(APP_SRC_DIR)/pdum_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG
 
 $(APP_SRC_DIR)/zps_gen.c $(APP_SRC_DIR)/zps_gen.h: $(APP_SRC_DIR)/$(APP_ZPSCFG) $(ZPSCONFIG)
 	$(info Configuring the Zigbee Protocol Stack ...)
-	$(ZPSCONFIG) -n $(TARGET)  -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -a $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR) || true
-	$(ZPSCONFIG) -n $(TARGET)  -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -l $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR) || true
-	cp ../patch/zps_gen.* $(APP_SRC_DIR)/
+	$(ZPSCONFIG) -n $(TARGET)  -t $(JENNIC_CHIP) -l $(ZPS_NWK_LIB) -a $(ZPS_APL_LIB) -c $(TOOL_COMMON_BASE_DIR)/$(TOOLCHAIN_PATH) -f $< -o $(APP_SRC_DIR)
 endif 
 
 %.o: %.S

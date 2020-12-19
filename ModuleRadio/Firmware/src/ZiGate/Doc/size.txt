@@ -1,6 +1,0 @@
-Sat Dec 19 01:39:03 2020
-   text	   data	    bss	    dec	    hex	filename
- 208672	   2520	  29253	 240445	  3ab3d	ZigbeeNodeControlBridge_JN5169_COORDINATOR_1000000.elf
-Sat Dec 19 01:46:47 2020
-   text	   data	    bss	    dec	    hex	filename
- 208672	   2520	  29253	 240445	  3ab3d	ZigbeeNodeControlBridge_JN5169_COORDINATOR_1000000.elf
