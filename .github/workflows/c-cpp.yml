@@ -24,14 +24,16 @@ jobs:
     - name: make
       id: make
       run: |
-        make -C $BUILD_DIR BAUD=115200
-        echo "FIRMWARE=$(cd ${{ env.BUILD_DIR }} && ls -1 *.bin)" >> $GITHUB_ENV
+        for NODE in COORDINATOR FULL_FUNC_DEVICE; do for BAUD in 115200 1000000; do for CHIP in JN5169 JN5168; do for GP in 0 1; do
+          make -j8 -C $BUILD_DIR NODE=$NODE GP_SUPPORT=$GP BAUD=$BAUD JENNIC_CHIP=$CHIP JENNIC_CHIP_FAMILY=JN516x
+          make -C $BUILD_DIR BAUD=0 clean
+        done done done done
         echo "::set-output name=status::success"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       if: steps.make.outputs.status == 'success' && !cancelled()
       with:
         # Artifact name
-        name: ${{ env.FIRMWARE }}
+        name: zigate_firmwares.zip
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{ env.BUILD_DIR }}/${{ env.FIRMWARE }}
+        path: ${{ env.BUILD_DIR }}/*.bin
