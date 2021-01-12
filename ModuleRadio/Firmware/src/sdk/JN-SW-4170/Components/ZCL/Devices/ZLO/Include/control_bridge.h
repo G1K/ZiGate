@@ -24,21 +24,21 @@
  * under applicable copyright laws. All rights are reserved. We grant You,
  * and any third parties, a license to use this software solely and
  * exclusively on NXP products  [NXP Microcontrollers such as JN5168, JN5164,
- * JN5161, JN5148, JN5142, JN5139]. 
- * You, and any third parties must reproduce the copyright and warranty notice 
+ * JN5161, JN5148, JN5142, JN5139].
+ * You, and any third parties must reproduce the copyright and warranty notice
  * and any other legend of ownership on each  copy or partial copy of the software.
  *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"  
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
- * POSSIBILITY OF SUCH DAMAGE. 
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  *
  * Copyright NXP B.V. 2012. All rights reserved
  *
@@ -162,7 +162,7 @@ typedef struct
 
     #if (defined CLD_OTA) && (defined OTA_SERVER)
         /* Add  server instance for the OTA cluster */
-        tsZCL_ClusterInstance sOTAServer;    
+        tsZCL_ClusterInstance sOTAServer;
     #endif
 
 	#if (defined CLD_TIME) && (defined TIME_SERVER)
@@ -177,11 +177,11 @@ typedef struct
     /*
      * Control Bridge Device has 7 other mandatory clusters for the client
      */
-   
+
     #if (defined CLD_BASIC) && (defined BASIC_CLIENT)
         tsZCL_ClusterInstance sBasicClient;
     #endif
-    
+
     #if (defined CLD_IDENTIFY) && (defined IDENTIFY_CLIENT)
         tsZCL_ClusterInstance sIdentifyClient;
     #endif
@@ -193,11 +193,11 @@ typedef struct
     #if (defined CLD_SCENES) && (defined SCENES_CLIENT)
         tsZCL_ClusterInstance sScenesClient;
     #endif
-    
+
     #if (defined CLD_ONOFF) && (defined ONOFF_CLIENT)
         tsZCL_ClusterInstance sOnOffClient;
     #endif
-    
+
     #if (defined CLD_LEVEL_CONTROL) && (defined LEVEL_CONTROL_CLIENT)
         tsZCL_ClusterInstance sLevelControlClient;
     #endif
@@ -218,11 +218,11 @@ typedef struct
     #if (defined CLD_OTA) && (defined OTA_CLIENT)
         tsZCL_ClusterInstance sOTAClient;
     #endif
-    
+
     #if (defined CLD_ILLUMINANCE_MEASUREMENT) && (defined ILLUMINANCE_MEASUREMENT_CLIENT)
         tsZCL_ClusterInstance sIlluminanceMeasurementClient;
     #endif
-    
+
     #if (defined CLD_ILLUMINANCE_LEVEL_SENSING) && (defined ILLUMINANCE_LEVEL_SENSING_CLIENT)
         tsZCL_ClusterInstance sIlluminanceLevelSensingClient;
     #endif
@@ -234,7 +234,7 @@ typedef struct
     #if (defined CLD_ZLL_COMMISSION) && (defined ZLL_COMMISSION_CLIENT)
         tsZCL_ClusterInstance sZllCommissionClient;
     #endif
-    
+
     /* Extra server cluster */
     #if (defined CLD_ONOFF) && (defined ONOFF_SERVER)
         tsZCL_ClusterInstance sOnOffServer;
@@ -246,8 +246,8 @@ typedef struct
 
     #if (defined CLD_APPLIANCE_STATISTICS) && (defined APPLIANCE_STATISTICS_SERVER)
         tsZCL_ClusterInstance sASCServer;
-    #endif    
-    
+    #endif
+
     /* Extra client cluster */
     #if (defined CLD_IASZONE) && (defined IASZONE_CLIENT)
         tsZCL_ClusterInstance sIASZoneClient;
@@ -278,11 +278,11 @@ typedef struct
     #if (defined CLD_THERMOSTAT_UI_CONFIG) && (defined THERMOSTAT_UI_CONFIG_CLIENT)
         tsZCL_ClusterInstance sThermostatUiConfigClient;
     #endif
-    
+
     #if (defined CLD_SIMPLE_METERING) && (defined SM_CLIENT)
         tsZCL_ClusterInstance sMeteringClient;
     #endif
-    
+
     #if (defined CLD_TEMPERATURE_MEASUREMENT) && (defined TEMPERATURE_MEASUREMENT_CLIENT)
         tsZCL_ClusterInstance sTemperatureMeasurementClient;
     #endif
@@ -360,13 +360,13 @@ typedef struct
 	#endif
 
     /* Recommended Optional Server Cluster */
-    
+
     #if (defined CLD_OTA) && (defined OTA_SERVER)
     /* OTA cluster */
-        tsCLD_AS_Ota sCLD_ServerOTA;    
+        tsCLD_AS_Ota sCLD_ServerOTA;
         tsOTA_Common sCLD_OTA_ServerCustomDataStruct;
     #endif
-    
+
     #if (defined CLD_TIME) && (defined TIME_SERVER)
     /* Time cluster */
         tsCLD_Time sTimeServerCluster;
@@ -383,16 +383,16 @@ typedef struct
         tsCLD_ZllCommission                         sZllCommissionServerCluster;
         tsCLD_ZllCommissionCustomDataStructure      sZllCommissionServerCustomDataStructure;
     #endif
-    
+
     /*
      * Mandatory client clusters
      */
-     
+
     #if (defined CLD_BASIC) && (defined BASIC_CLIENT)
         /* Basic Cluster - Client */
         tsCLD_Basic sBasicClientCluster;
     #endif
-    
+
     #if (defined CLD_IDENTIFY) && (defined IDENTIFY_CLIENT)
         /* Identify Cluster - Client */
         tsCLD_Identify sIdentifyClientCluster;
@@ -404,13 +404,13 @@ typedef struct
         tsCLD_Groups sGroupsClientCluster;
         tsCLD_GroupsCustomDataStructure sGroupsClientCustomDataStructure;
     #endif
-    
+
     #if (defined CLD_SCENES) && (defined SCENES_CLIENT)
         /* Scenes Cluster - Client */
         tsCLD_Scenes sScenesClientCluster;
         tsCLD_ScenesCustomDataStructure sScenesClientCustomDataStructure;
     #endif
-    
+
     #if (defined CLD_ONOFF) && (defined ONOFF_CLIENT)
         /* On/Off Cluster - Client */
         tsCLD_OnOffClient sOnOffClientCluster;
@@ -430,7 +430,7 @@ typedef struct
 
     #if (defined CLD_COLOUR_CONTROL) && (defined COLOUR_CONTROL_CLIENT)
         /* Colour Control Cluster - Client */
-        tsCLD_ColourControl sColourControlClientCluster;    
+        tsCLD_ColourControl sColourControlClientCluster;
         tsCLD_ColourControlCustomDataStructure sColourControlClientCustomDataStructure;
     #endif
 
@@ -441,13 +441,13 @@ typedef struct
     #endif
 
         /* Recommended Optional client clusters */
-        
+
     #if (defined CLD_OTA) && (defined OTA_CLIENT)
         /* OTA cluster */
-        tsCLD_AS_Ota sCLD_OTA;    
+        tsCLD_AS_Ota sCLD_OTA;
         tsOTA_Common sCLD_OTA_CustomDataStruct;
     #endif
-    
+
     #if (defined CLD_ILLUMINANCE_MEASUREMENT) && (defined ILLUMINANCE_MEASUREMENT_CLIENT)
         /* Illuminance Measurement Cluster - Client */
         tsCLD_IlluminanceMeasurement sIlluminanceMeasurementClientCluster;
@@ -479,16 +479,16 @@ typedef struct
         tsCLD_Groups sGroupsServerCluster;
         tsCLD_GroupsCustomDataStructure sGroupsServerCustomDataStructure;
     #endif
-    
+
     #if (defined CLD_APPLIANCE_STATISTICS) && (defined APPLIANCE_STATISTICS_SERVER)
         tsZCL_ClusterInstance sASCServerCluster;
         tsCLD_ApplianceStatisticsCustomDataStructure sASCServerCustomDataStructure;
     #endif
-    
+
     /* Optional client cluster */
     #if (defined CLD_IASZONE) && (defined IASZONE_CLIENT)
         /* IAS Zone - Client */
-        tsCLD_IASZone sIASZoneClientCluster;    
+        tsCLD_IASZone sIASZoneClientCluster;
         tsCLD_IASZone_CustomDataStructure sIASZoneClientCustomDataStructure;
     #endif
 
@@ -509,7 +509,7 @@ typedef struct
         /* door lock Cluster - Client */
         tsCLD_DoorLock sDoorLockClientCluster;
     #endif
-    
+
 	#if (defined CLD_WINDOWCOVERING) && (defined WINDOWCOVERING_CLIENT)
         /* Window Covering Cluster - Client */
         tsCLD_WindowCovering sWindowCoveringClientCluster;
@@ -521,7 +521,7 @@ typedef struct
     #endif
 
     #if (defined CLD_THERMOSTAT) && (defined THERMOSTAT_CLIENT)
-        tsCLD_Thermostat sThermostatClientCluster;        
+        tsCLD_Thermostat sThermostatClientCluster;
         tsCLD_ThermostatCustomDataStructure sThermostatClientCustomDataStructure;
     #endif
     #if (defined CLD_THERMOSTAT) && (defined THERMOSTAT_SERVER)
@@ -533,7 +533,7 @@ typedef struct
        tsCLD_Thermostat sThermostatUiConfigClientCluster;
        tsCLD_ThermostatCustomDataStructure sThermostatUiConfigClientCustomDataStructure;
     #endif
-    
+
     #if (defined CLD_TEMPERATURE_MEASUREMENT) && (defined TEMPERATURE_MEASUREMENT_CLIENT)
         tsCLD_TemperatureMeasurement sTemperatureMeasurementClientCluster;
     #endif
@@ -589,10 +589,6 @@ typedef struct
 /****************************************************************************/
 
 PUBLIC teZCL_Status eZLO_RegisterControlBridgeEndPoint( uint8                         u8EndPointIdentifier,
-                                                        tfpZCL_ZCLCallBackFunction    cbCallBack,
-                                                        tsZLO_ControlBridgeDevice*    psDeviceInfo );
-
-PUBLIC teZCL_Status eZLO_RegisterControlBridgeEndPointLivolo( uint8                         u8EndPointIdentifier,
                                                         tfpZCL_ZCLCallBackFunction    cbCallBack,
                                                         tsZLO_ControlBridgeDevice*    psDeviceInfo );
 
