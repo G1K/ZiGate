@@ -134,7 +134,7 @@ PUBLIC  void vZCL_HandleDiscoverAttributesExtendedResponse(
     // read incoming request
     u16inputOffset = u16ZCL_ReadCommandHeader(pZPSevent->uEvent.sApsDataIndEvent.hAPduInst,
                                               &sZCL_HeaderParams);
-    sZCL_CallBackEvent.u8TransactionSequenceNumber = sZCL_HeaderParams.u8TransactionSequenceNumber; 
+    sZCL_CallBackEvent.u8TransactionSequenceNumber = sZCL_HeaderParams.u8TransactionSequenceNumber;
 
 
     if (sZCL_CallBackEvent.eEventType != E_ZCL_CBET_ERROR)
@@ -178,14 +178,14 @@ PUBLIC  void vZCL_HandleDiscoverAttributesExtendedResponse(
                 u16inputOffset,
                 E_ZCL_UINT8,
                 &sZCL_CallBackEvent.uMessage.sAttributeDiscoveryExtenedResponse.eAttributeDataType);
-                
+
             u16inputOffset += u16ZCL_APduInstanceReadNBO(pZPSevent->uEvent.sApsDataIndEvent.hAPduInst,
                 u16inputOffset,
                 E_ZCL_UINT8,
-                &sZCL_CallBackEvent.uMessage.sAttributeDiscoveryExtenedResponse.u8AttributeFlags);                
+                &sZCL_CallBackEvent.uMessage.sAttributeDiscoveryExtenedResponse.u8AttributeFlags);
 
             // call user for every attribute
-            psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+            //psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
         }
 
         sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_ATTRIBUTES_EXTENDED_RESPONSE;

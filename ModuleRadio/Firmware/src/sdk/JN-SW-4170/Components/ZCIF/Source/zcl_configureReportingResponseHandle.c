@@ -162,7 +162,7 @@ PUBLIC  void vZCL_HandleConfigureReportingResponse(
                     pZPSevent->uEvent.sApsDataIndEvent.hAPduInst, u16inputOffset, E_ZCL_ATTRIBUTE_ID, &sZCL_CallBackEvent.uMessage.sReportingConfigurationResponse.u16AttributeEnum);
 
                 // call user for every attribute
-                psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+                //psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
 
                 // check for length error
                 if((u16payloadSize-u16inputOffset !=0) && (u16payloadSize-u16inputOffset < 3))

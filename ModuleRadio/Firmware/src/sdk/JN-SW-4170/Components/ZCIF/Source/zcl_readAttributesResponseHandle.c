@@ -183,7 +183,7 @@ PUBLIC   void vZCL_HandleAttributesReadResponse(
 
         // For report attribute make sure the status is set to SUCCESS before callback
         sZCL_CallBackEvent.uMessage.sIndividualAttributeResponse.eAttributeStatus = E_ZCL_CMDS_SUCCESS;
-                
+
         if(sZCL_HeaderParams.u8CommandIdentifier== E_ZCL_READ_ATTRIBUTES_RESPONSE)
         {
             // read and check status
@@ -284,7 +284,7 @@ PUBLIC   void vZCL_HandleAttributesReadResponse(
         }
 
         // call user for every attribute
-        psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+//        psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
     }
 
     // re-use last attribute generated structure for message but indicate command is complete, last attribute

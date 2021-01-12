@@ -159,7 +159,7 @@ PUBLIC void   vZCL_HandleAttributesWriteResponse(
                 sZCL_CallBackEvent.uMessage.sIndividualAttributeResponse.pvAttributeData = NULL;
 
                 // call user for every attribute
-                psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+                // psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
             }
         }
 

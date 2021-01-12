@@ -231,34 +231,34 @@ PRIVATE void vZCL_HandleDiscoverCommandsResponse(
                 u16inputOffset,
                 E_ZCL_UINT8,
                 &u8CommandEnum);
-            if(E_ZCL_DISCOVER_COMMANDS_RECEIVED_RESPONSE == u8Command)  
-            {            
+            if(E_ZCL_DISCOVER_COMMANDS_RECEIVED_RESPONSE == u8Command)
+            {
                 sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_INDIVIDUAL_COMMAND_RECEIVED_RESPONSE;
                 sZCL_CallBackEvent.uMessage.sCommandsReceivedDiscoveryIndividualResponse.u8CommandEnum=u8CommandEnum;
                 sZCL_CallBackEvent.uMessage.sCommandsReceivedDiscoveryIndividualResponse.u8CommandIndex = i;
             }
 
-            if(E_ZCL_DISCOVER_COMMANDS_GENERATED_RESPONSE == u8Command)  
-            {    
-                sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_INDIVIDUAL_COMMAND_GENERATED_RESPONSE;            
+            if(E_ZCL_DISCOVER_COMMANDS_GENERATED_RESPONSE == u8Command)
+            {
+                sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_INDIVIDUAL_COMMAND_GENERATED_RESPONSE;
                 sZCL_CallBackEvent.uMessage.sCommandsGeneratedDiscoveryIndividualResponse.u8CommandEnum=u8CommandEnum;
                 sZCL_CallBackEvent.uMessage.sCommandsGeneratedDiscoveryIndividualResponse.u8CommandIndex = i;
             }
             // call user for every attribute
-            psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+            //psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
         }
-        if(E_ZCL_DISCOVER_COMMANDS_RECEIVED_RESPONSE == u8Command)  
+        if(E_ZCL_DISCOVER_COMMANDS_RECEIVED_RESPONSE == u8Command)
         {
-            sZCL_CallBackEvent.uMessage.sCommandsReceivedDiscoveryResponse.bDiscoveryComplete=bDiscoveryComplete; 
+            sZCL_CallBackEvent.uMessage.sCommandsReceivedDiscoveryResponse.bDiscoveryComplete=bDiscoveryComplete;
             sZCL_CallBackEvent.uMessage.sCommandsReceivedDiscoveryResponse.u8NumberOfCommands=u8NumberOfCommands;
             sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_COMMAND_RECEIVED_RESPONSE;
         }
-        if(E_ZCL_DISCOVER_COMMANDS_GENERATED_RESPONSE == u8Command)  
+        if(E_ZCL_DISCOVER_COMMANDS_GENERATED_RESPONSE == u8Command)
         {
-            sZCL_CallBackEvent.uMessage.sCommandsGeneratedDiscoveryResponse.bDiscoveryComplete=bDiscoveryComplete; 
+            sZCL_CallBackEvent.uMessage.sCommandsGeneratedDiscoveryResponse.bDiscoveryComplete=bDiscoveryComplete;
             sZCL_CallBackEvent.uMessage.sCommandsGeneratedDiscoveryResponse.u8NumberOfCommands=u8NumberOfCommands;
             sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_COMMAND_GENERATED_RESPONSE;
-        }        
+        }
         if(bMessageError==TRUE)
         {
             // something not right about the message length

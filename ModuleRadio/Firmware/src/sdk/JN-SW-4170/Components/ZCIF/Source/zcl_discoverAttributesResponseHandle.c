@@ -129,9 +129,9 @@ PUBLIC  void vZCL_HandleDiscoverAttributesResponse(
     // read incoming request
     u16inputOffset = u16ZCL_ReadCommandHeader(pZPSevent->uEvent.sApsDataIndEvent.hAPduInst,
                                               &sZCL_HeaderParams);
-                                              
+
     sZCL_CallBackEvent.u8TransactionSequenceNumber = sZCL_HeaderParams.u8TransactionSequenceNumber;
-    
+
     if (sZCL_CallBackEvent.eEventType != E_ZCL_CBET_ERROR)
     {
         // parse the incoming message, read each attribute from the device and write into the outgoing buffer
@@ -175,7 +175,7 @@ PUBLIC  void vZCL_HandleDiscoverAttributesResponse(
                 &sZCL_CallBackEvent.uMessage.sAttributeDiscoveryResponse.eAttributeDataType);
 
             // call user for every attribute
-            psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
+            //  psZCL_EndPointDefinition->pCallBackFunctions(&sZCL_CallBackEvent);
         }
 
         sZCL_CallBackEvent.eEventType = E_ZCL_CBET_DISCOVER_ATTRIBUTES_RESPONSE;
